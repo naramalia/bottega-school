@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nav Bar</title>
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Squada+One" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .nav-bar-wrapper {
+            width: 100vw;
+            background-color: black;
+        }
+
+        .nav-bar-wrapper div {
+            display: none;
+        }
+
+        .nav-bar-wrapper .toggle,
+        .nav-bar-wrapper .title {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .nav-bar-wrapper .link {
+            display: block;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 150px;
+            background: black;
+            color: #FCE902;
+            text-align: left;
+            text-decoration: none;
+            font-family: 'Squada One', cursive;
+        }
+
+        .nav-bar-wrapper .link:hover,
+        .link:active {
+            background-color: #FCE902;
+            color: black;
+        }
+
+        .nav-bar-wrapper .title {
+            font-family: 'Bangers', cursive;
+            width: 30vw;
+            color: white;
+            font-size: 4em;
+            text-align: center;
+        }
+
+        .nav-bar-wrapper .title a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-bar-wrapper .title a:hover {
+            color: darkblue;
+        }
+
+        .nav-bar-wrapper .toggle {
+            padding: 1em;
+            color: darkblue;
+        }
+
+        @media (min-width: 48em){
+            .nav-bar-wrapper {
+                display: flex;
+            }
+            .nav-left,
+            .nav-right {
+                display: flex;
+                flex: 1;
+            }
+            .nav-bar-wrapper div {
+                display: flex;
+            }
+            .nav-bar-wrapper .link {
+                width: auto;
+            }
+            .nav-right {
+                justify-content: flex-end;
+            }
+            .nav-bar-wrapper .toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 48em){
+            .nav-bar-wrapper.active .toggle {
+                background-color:#FCE902;
+                color: black;
+            }
+            .nav-bar-wrapper .title {
+                text-align: left;
+            }
+            .nav-bar-wrapper.active div {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar-wrapper">
+        <div class="toggle" id="navHamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <div class="title">
+            <a href="#">BullDog</a>
+        </div>
+        
+        <div class="nav-left">
+            <a href="#" class="link">CLIPS</a>
+            <a href="#" class="link">CREDITS</a>
+        </div>
+            
+        <div class="nav-right">
+            <a href="#" class="link">CONTACT</a>
+        </div>
+    </div>
+</body>
+
+<script>
+    const navHamburger = document.querySelector('#navHamburger');
+    navHamburger.addEventListener('click', (e) => {
+        navHamburger.parentElement.classList.toggle('active')
+    })
+</script>
+</html>
